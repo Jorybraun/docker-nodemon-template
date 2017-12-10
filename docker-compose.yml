@@ -1,0 +1,13 @@
+version: "3.1"
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+    links:
+      - "db:database"
+    volumes:
+    - "./node_modules:/usr/src/app/node_modules"
+    - "./src:/usr/src/app/src"
+  db:
+    image: postgres
